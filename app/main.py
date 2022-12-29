@@ -27,6 +27,7 @@ async def root():
     return {"message": "こんばんわ"}
 
 
+
 @app.post("/users/", response_model=schemas.User)
 def create_user(user: schemas.UserCreate, db: Session = Depends(get_db)):
     db_user = crud.get_user_by_email(db, email=user.email)
